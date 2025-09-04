@@ -62,3 +62,6 @@ Set blur/opacity.
 Add custom avatars (static or animated).
 
 Rename "You" and "AI".
+
+📖 Want to know the bigger idea behind this project?  
+Read the [Vision Document](./VISION.md).
