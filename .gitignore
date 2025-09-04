@@ -1,0 +1,38 @@
+# Node / npm
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Build / dist
+dist/
+build/
+*.zip
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Temp files
+*.tmp
+*.swp
+*.swo
+
+# Keys / private
+*.pem
+*.key
+*.crt
+
+# Background test images
+*.jpg
+*.jpeg
+*.gif
+*.mp4
+*.webm
