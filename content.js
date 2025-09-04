@@ -1,4 +1,3 @@
-// ChatGPT Chat Customizer v3 — single-file content script (CSS injected here)
 
 const defaultState = {
   enabled: true,
