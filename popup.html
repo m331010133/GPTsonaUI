@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>GPTsonaUI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      :root {
+        --bg-dark: #0b0f15;
+        --bg-panel: #121822;
+        --accent: #1e90ff;
+        --accent-hover: #3aa0ff;
+        --text: #e5ecf7;
+        --text-muted: #7f8da8;
+        --border: #1d2735;
+      }
+      body {
+        font-family: "Segoe UI", Roboto, sans-serif;
+        width: 340px;
+        margin: 0;
+        padding: 14px;
+        background: var(--bg-dark);
+        color: var(--text);
+        overflow-y: auto;
+        max-height: 500px;
+      }
+      h1 {
+        font-size: 18px;
+        margin: 0 0 14px;
+        text-align: center;
+        font-weight: 600;
+        color: var(--accent);
+        letter-spacing: 0.5px;
+      }
+      .row {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+      label {
+        font-size: 13px;
+        flex: 0 0 120px;
+        color: var(--text-muted);
+      }
+      input[type="file"],
+      select,
+      input[type="text"] {
+        flex: 1;
+        background: var(--bg-panel);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        color: var(--text);
+        font-size: 13px;
+        padding: 5px 6px;
+      }
+      input[type="range"] {
+        flex: 1;
+        accent-color: var(--accent);
+      }
+      .btns {
+        display: flex;
+        gap: 10px;
+        margin-top: 14px;
+      }
+      button {
+        flex: 1;
+        padding: 8px 0;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 13px;
+        cursor: pointer;
+        background: var(--accent);
+        color: white;
+        transition: background 0.2s ease;
+      }
+      button:hover {
+        background: var(--accent-hover);
+      }
+      #resetBtn {
+        background: #1a1f28;
+        color: var(--text-muted);
+      }
+      #resetBtn:hover {
+        background: #262f3e;
+        color: var(--text);
+      }
+      .preview {
+        width: 100%;
+        height: 90px;
+        border: 2px dashed var(--border);
+        border-radius: 10px;
+        background-size: cover;
+        background-position: center;
+        margin: 6px 0 12px;
+      }
+      .muted {
+        color: var(--text-muted);
+        font-size: 12px;
+        text-align: center;
+        margin-top: 12px;
+      }
+      .switch {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--bg-panel);
+        padding: 6px 10px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+      }
+      hr {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 14px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>⚡ GPTsonaUI</h1>
+    <div class="row"><label>Background image</label><input type="file" id="bgFile" accept="image/*"></div>
+    <div class="row">
+      <label for="bgSize">Background size</label>
+      <select id="bgSize">
+        <option value="cover">cover</option>
+        <option value="contain">contain</option>
+      </select>
+    </div>
+    <div class="row"><label for="bgOpacity">Overlay opacity</label><input type="range" id="bgOpacity" min="0" max="1" step="0.05"></div>
+    <div class="row"><label for="bgBlur">Blur (px)</label><input type="range" id="bgBlur" min="0" max="20" step="1"></div>
+    <div class="preview" id="bgPreview"></div>
+
+    <hr />
+
+    <div class="row"><label>User name</label><input type="text" id="userName" placeholder="e.g. You"></div>
+    <div class="row"><label>AI name</label><input type="text" id="assistantName" placeholder="e.g. AI"></div>
+
+    <div class="row"><label>User avatar</label><input type="file" id="userFile" accept="image/*"></div>
+    <div class="row"><label>Assistant avatar</label><input type="file" id="assistantFile" accept="image/*"></div>
+
+    <div class="btns">
+      <button id="saveBtn">Save</button>
+      <button id="resetBtn">Reset</button>
+    </div>
+
+    <p class="muted">Settings are stored per chat (URL-specific). reload for backgrounds.</p>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

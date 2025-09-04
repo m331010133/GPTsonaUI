@@ -1,0 +1,50 @@
+/* Ensure wrappers can anchor absolute elements (avatar) and have space above */
+[data-message-author-role="assistant"],
+[data-message-author-role="user"] {
+  position: relative !important;
+  margin-top: 22px !important;   /* space so top avatar doesn't overlap previous message */
+}
+
+/* Shared style for all names */
+.ccc-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ccc;
+  margin-bottom: 5px;
+  display: flex;       /* key: flex container */
+  width: 100%;         /* take row space, so we can justify */
+}
+
+/* Assistant → stick to left */
+[data-message-author-role="assistant"] .ccc-name {
+  justify-content: flex-start;
+  padding-left: 0px;  /* offset to clear avatar */
+}
+
+/* User → stick to right */
+[data-message-author-role="user"] .ccc-name {
+  justify-content: flex-end;
+  padding-right: 0px; /* offset to clear avatar */
+}
+
+/* Top-floating avatars (outside the message line) */
+.ccc-avatar-top {
+  position: absolute !important;
+  top: -5px;                  /* floats above the message block */
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;                  /* above panel/background */
+}
+
+/* Side anchoring for avatars */
+[data-message-author-role="assistant"] .ccc-avatar-top { left: -40px; }
+[data-message-author-role="user"] .ccc-avatar-top { right: -40px; }
+
+/* (optional) if your layout is tight, nudge on small screens */
+@media (max-width: 900px) {
+  [data-message-author-role="assistant"] .ccc-avatar-top { left: -32px; }
+  [data-message-author-role="user"] .ccc-avatar-top { right: -32px; }
+}
